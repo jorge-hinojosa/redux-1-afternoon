@@ -8,7 +8,9 @@ let RecipeCard = props => {
     authorFirst,
     authorLast,
     ingredients,
-    instructions
+    instructions,
+    remove,
+    id
   } = props;
   const ingredientsDisplay = ingredients.map((ingredient, i) => {
     return <li key={i}>{ingredient}</li>;
@@ -16,6 +18,7 @@ let RecipeCard = props => {
   const instructionsDisplay = instructions.map((instruction, i) => {
     return <li key={i}>{instruction}</li>;
   });
+
   return (
     <div className="RecipeCard">
       <div className="title_container">
@@ -33,6 +36,7 @@ let RecipeCard = props => {
       <div className="scroll_container">
         <ol className="list">{instructionsDisplay}</ol>
       </div>
+      {/* <button onClick={() => props.remove}> */}
       <svg
         className="delete"
         width="60"
@@ -40,6 +44,7 @@ let RecipeCard = props => {
         viewBox="0 0 60 60"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        onClick={() => remove(id)}
       >
         <path
           d="M2.35352 57.3536L57.3535 3.3409M2.35352 2.64648L57.3535 56.6592"
@@ -47,6 +52,7 @@ let RecipeCard = props => {
           strokeWidth="5"
         />
       </svg>
+      {/* </button> */}
     </div>
   );
 };
